@@ -83,6 +83,7 @@ class IpSender:
             url += '&chat_id={}'.format(chat_id)
         params = {"text": text, "notify": notify}
         response = requests.post(url, data=json.dumps(params))
+        self.logger.info(response)
         if response.status_code != 200:
             self.logger.info("Response status code: {}".format(response.status_code))
 
